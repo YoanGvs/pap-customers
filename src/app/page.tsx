@@ -1,3 +1,7 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Vue d’ensemble | PAP Customers" };
+
 const topCustomers = [
   { name: "Marie Dupont", orders: 24, revenue: "3 120 €" },
   { name: "Lucas Bernard", orders: 18, revenue: "2 450 €" },
@@ -8,7 +12,7 @@ const topCustomers = [
 
 export default function Home() {
   return (
-    <main className="p-4 md:p-8">
+    <main id="contenu" tabIndex={-1} className="p-4 md:p-8">
       <h1 className="text-2xl font-bold">Vue d’ensemble</h1>
 
       <section className="mt-6 flex flex-col gap-4 md:flex-row">
@@ -42,11 +46,12 @@ export default function Home() {
         </ul>
 
         <table className="mt-4 hidden w-full rounded-xl bg-surface md:table">
+          <caption className="sr-only">Les cinq meilleurs clients — valeurs d’exemple</caption>
           <thead>
             <tr className="text-left text-sm">
-              <th className="p-4 font-medium">Nom</th>
-              <th className="p-4 font-medium">Commandes</th>
-              <th className="p-4 font-medium">Chiffre d’affaires</th>
+              <th scope="col" className="p-4 font-medium">Nom</th>
+              <th scope="col" className="p-4 font-medium">Commandes</th>
+              <th scope="col" className="p-4 font-medium">Chiffre d’affaires</th>
             </tr>
           </thead>
           <tbody>
