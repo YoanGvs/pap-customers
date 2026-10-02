@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Customer } from "@/data/customers";
+import type { Customer } from "@/types/customer";
 
 export default function CustomerCard({ customer }: { customer: Customer }) {
   return (

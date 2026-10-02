@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import OrderList from "@/components/order-list";
-import { getCustomer } from "@/data/customers";
+import { getCustomer } from "@/lib/customers";
 
 // Next fournit le numéro contenu dans l'adresse ; TypeScript en décrit la forme.
 type CustomerPageProps = {
@@ -11,13 +11,13 @@ type CustomerPageProps = {
 
 export async function generateMetadata({ params }: CustomerPageProps): Promise<Metadata> {
   const { id } = await params;
-  const customer = getCustomer(id);
+  const customer = await getCustomer(id);
   return { title: `${customer?.name ?? "Client introuvable"} | PAP Customers` };
 }
 
 export default async function CustomerPage({ params }: CustomerPageProps) {
   const { id } = await params;
-  const customer = getCustomer(id);
+  const customer = await getCustomer(id);
 
   if (!customer) {
     notFound();
@@ -31,7 +31,7 @@ export default async function CustomerPage({ params }: CustomerPageProps) {
         ← Retour aux clients
       </Link>
       <h1 className="mt-4 text-2xl font-bold">Fiche client</h1>
-      <p className="mt-2 text-sm">Données fictives · Lecture seule pour le moment.</p>
+      <p className="mt-2 text-sm">Données fictives lues depuis la base · Lecture seule pour le moment.</p>
 
       <section aria-labelledby="client-name" className="mt-6 flex flex-wrap items-center gap-4 rounded-xl bg-surface p-6">
         <span aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-background font-bold text-primary">{customer.name.slice(0, 1)}</span>

@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import CustomerCard from "@/components/customer-card";
-import { customers } from "@/data/customers";
+import { getCustomers } from "@/lib/customers";
 
 export const metadata: Metadata = { title: "Clients | PAP Customers" };
 
-export default function Clients() {
+export default async function Clients() {
+  // Lire la base à l'ouverture de la page, pas seulement lors de la compilation.
+  await connection();
+  const customers = await getCustomers();
+
   return (
     <main id="contenu" tabIndex={-1} className="p-4 md:p-8">
       <h1 className="text-2xl font-bold">Clients</h1>
-      <p className="mt-2 text-sm">Données fictives. Choisissez un client pour consulter sa fiche.</p>
+      <p className="mt-2 text-sm">Données fictives lues depuis la base. Choisissez un client pour consulter sa fiche.</p>
 
       <p id="search-help" className="mt-6 text-sm">Recherche et tri : aperçu, non disponibles pour le moment.</p>
       <fieldset disabled aria-describedby="search-help" className="mt-3 grid gap-4 sm:grid-cols-2">
@@ -25,6 +30,7 @@ export default function Clients() {
         </div>
       </fieldset>
 
+      {customers.length === 0 && <p className="mt-6">Aucun client enregistré pour le moment.</p>}
       <ul className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {customers.map((customer) => (
           <li key={customer.id}>
