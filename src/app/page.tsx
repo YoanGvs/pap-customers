@@ -1,4 +1,3 @@
-// Valeurs provisoires, deja triees du plus gros CA au plus petit.
 const topCustomers = [
   { name: "Marie Dupont", orders: 24, revenue: "3 120 €" },
   { name: "Lucas Bernard", orders: 18, revenue: "2 450 €" },
@@ -55,7 +54,9 @@ export default function Home() {
               <tr key={customer.name} className="border-t border-background">
                 <td className="p-4">{customer.name}</td>
                 <td className="p-4">{customer.orders}</td>
-                <td className="p-4 font-bold text-primary">{customer.revenue}</td>
+                <td className="p-4 font-bold text-primary">
+                  {customer.revenue}
+                </td>
               </tr>
             ))}
           </tbody>
