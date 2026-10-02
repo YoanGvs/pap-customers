@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Customer {
+  id         String  @id
+  name       String
+  type       String
+  city       String
+  department String?
+  since      String?
+  contact    String?
+  email      String?
+  phone      String?
+  address    String?
+
+  // Chiffres provisoires des écrans, pas encore calculés depuis les commandes.
+  orderCount        Int
+  revenueCents      Int
+  averageOrderCents Int?
+  lastOrder         String
+
+  orders Order[]
+}
+
+model Order {
+  id          String   @id
+  reference   String   @unique
+  date        String
+  amountCents Int
+  status      String
+  customerId  String
+  customer    Customer @relation(fields: [customerId], references: [id])
+
+  @@index([customerId])
+}

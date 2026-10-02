@@ -1,0 +1,6 @@
+[
+  { "id": "84", "customerId": "9", "reference": "CMD-2026-084", "date": "2026-08-28", "amountCents": 485000, "status": "Livrée" },
+  { "id": "83", "customerId": "9", "reference": "CMD-2026-083", "date": "2026-07-18", "amountCents": 820000, "status": "Livrée" },
+  { "id": "82", "customerId": "9", "reference": "CMD-2026-082", "date": "2026-06-02", "amountCents": 360000, "status": "Livrée" },
+  { "id": "81", "customerId": "9", "reference": "CMD-2026-081", "date": "2026-05-14", "amountCents": 548000, "status": "Livrée" }
+]
