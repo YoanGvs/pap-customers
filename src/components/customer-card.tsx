@@ -1,9 +1,14 @@
+import Link from "next/link";
 import type { Customer } from "@/data/customers";
 
 export default function CustomerCard({ customer }: { customer: Customer }) {
   return (
     <article className="h-full rounded-xl bg-surface p-6">
-      <h2 className="text-lg font-bold">{customer.name}</h2>
+      <h2 className="text-lg font-bold">
+        <Link href={`/clients/${customer.id}`} className="text-primary underline underline-offset-4">
+          {customer.name}
+        </Link>
+      </h2>
       <p className="mt-1 text-sm">{customer.type} · {customer.city}</p>
       <dl className="mt-4 space-y-3 text-sm">
         <div>

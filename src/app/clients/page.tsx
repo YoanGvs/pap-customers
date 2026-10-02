@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import CustomerCard from "@/components/customer-card";
 import { customers } from "@/data/customers";
 
@@ -9,10 +8,7 @@ export default function Clients() {
   return (
     <main id="contenu" tabIndex={-1} className="p-4 md:p-8">
       <h1 className="text-2xl font-bold">Clients</h1>
-      <p className="mt-2 text-sm">Contenu d’exemple. Les fiches individuelles seront reliées à l’étape suivante.</p>
-      <Link href="/clients/exemple" className="mt-4 inline-block py-2 text-primary underline underline-offset-4">
-        Voir la fiche d’exemple : Les Explorateurs
-      </Link>
+      <p className="mt-2 text-sm">Données fictives. Choisissez un client pour consulter sa fiche.</p>
 
       <p id="search-help" className="mt-6 text-sm">Recherche et tri : aperçu, non disponibles pour le moment.</p>
       <fieldset disabled aria-describedby="search-help" className="mt-3 grid gap-4 sm:grid-cols-2">
