@@ -23,3 +23,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Le clavier doit indiquer aussi clairement que la souris où l'on se trouve. */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
