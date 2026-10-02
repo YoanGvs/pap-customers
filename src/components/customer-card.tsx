@@ -1,15 +1,6 @@
-// Ce type décrit les informations que la page doit fournir à une carte.
-// Le montant reste du texte d'affichage tant que les calculs ne sont pas branchés.
-export type CustomerPreview = {
-  name: string;
-  type: string;
-  city: string;
-  orders: number;
-  revenue: string;
-  lastOrder: string;
-};
+import type { Customer } from "@/data/customers";
 
-export default function CustomerCard({ customer }: { customer: CustomerPreview }) {
+export default function CustomerCard({ customer }: { customer: Customer }) {
   return (
     <article className="h-full rounded-xl bg-surface p-6">
       <h2 className="text-lg font-bold">{customer.name}</h2>
