@@ -66,12 +66,9 @@ export default async function CustomerPage({ params }: CustomerPageProps) {
         <section aria-labelledby="orders-title" className="min-w-0 rounded-xl bg-surface p-6 lg:col-start-2 lg:row-start-2">
           <h2 id="orders-title" className="text-lg font-bold">Historique des commandes</h2>
           {orders.length > 0 ? (
-            <>
-              <p className="mt-1 text-sm">{orders.length} commandes affichées sur {customer.orders}.</p>
-              <OrderList orders={orders} />
-            </>
+            <OrderList orders={orders} />
           ) : (
-            <p className="mt-4 text-sm">L’historique détaillé n’est pas encore renseigné dans cet exemple.</p>
+            <p className="mt-4 text-sm">Aucune commande pour ce client.</p>
           )}
         </section>
 

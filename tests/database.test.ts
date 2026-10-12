@@ -32,7 +32,7 @@ test("la base conserve les clients et leurs commandes", { timeout: 120_000 }, as
     prisma = connect();
 
     assert.equal(await prisma.customer.count(), 9);
-    assert.equal(await prisma.order.count(), 4);
+    assert.equal(await prisma.order.count(), 20);
     const customer = await prisma.customer.findUnique({
       where: { id: "9" },
       include: { orders: true },
@@ -59,13 +59,13 @@ test("la base conserve les clients et leurs commandes", { timeout: 120_000 }, as
     await prisma.customer.update({ where: { id: "1" }, data: { name: editedName } });
     runCommand("npx", ["--no-install", "prisma", "db", "seed"]);
     assert.equal(await prisma.customer.count(), 9);
-    assert.equal(await prisma.order.count(), 4);
+    assert.equal(await prisma.order.count(), 20);
     assert.equal((await prisma.customer.findUnique({ where: { id: "1" } }))?.name, editedName);
 
     await prisma.$disconnect();
     prisma = connect();
     assert.equal((await prisma.customer.findUnique({ where: { id: "1" } }))?.name, editedName);
-    assert.equal(await prisma.order.count(), 4);
+    assert.equal(await prisma.order.count(), 20);
   } finally {
     await prisma?.$disconnect();
     rmSync(directory, { recursive: true, force: true });

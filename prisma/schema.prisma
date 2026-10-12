@@ -19,12 +19,6 @@ model Customer {
   phone      String?
   address    String?
 
-  // Valeurs importées, pas encore calculées depuis Order
-  orderCount        Int
-  revenueCents      Int
-  averageOrderCents Int?
-  lastOrder         String
-
   orders Order[]
 }
 
