@@ -13,15 +13,11 @@ const shortDate = new Intl.DateTimeFormat("fr-FR", { dateStyle: "short", timeZon
 
 type CustomerWithOrders = StoredCustomer & { orders: Order[] };
 
-// Les chiffres se déduisent des commandes, rien n'est stocké en double
-function getRevenueCents(orders: Order[]) {
-  return orders.reduce((total, order) => total + order.amountCents, 0);
-}
-
 // Centimes et dates ISO -> texte affichable
 function toCustomer(customer: CustomerWithOrders): Customer {
   const orderCount = customer.orders.length;
-  const revenueCents = getRevenueCents(customer.orders);
+  // Les chiffres se déduisent des commandes, rien n'est stocké en double
+  const revenueCents = customer.orders.reduce((total, order) => total + order.amountCents, 0);
   const lastOrder = customer.orders.map((order) => order.date).sort().at(-1);
 
   return {
@@ -46,8 +42,6 @@ function toCustomer(customer: CustomerWithOrders): Customer {
 
 export async function getCustomers(): Promise<Customer[]> {
   const customers = await prisma.customer.findMany({ include: { orders: true } });
-  // Tri en JS : le chiffre d'affaires n'est pas une colonne
-  customers.sort((a, b) => getRevenueCents(b.orders) - getRevenueCents(a.orders));
   return customers.map(toCustomer);
 }
 
