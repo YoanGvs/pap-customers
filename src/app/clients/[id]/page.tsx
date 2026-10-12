@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import FollowUpDialog from "@/components/follow-up-dialog";
 import OrderList from "@/components/order-list";
 import { getCustomer } from "@/lib/customers";
 
@@ -30,7 +31,7 @@ export default async function CustomerPage({ params }: CustomerPageProps) {
         ← Retour aux clients
       </Link>
       <h1 className="mt-4 text-2xl font-bold">Fiche client</h1>
-      <p className="mt-2 text-sm">Données fictives lues depuis la base · Lecture seule pour le moment.</p>
+      <p className="mt-2 text-sm">Données fictives lues depuis la base.</p>
 
       <section aria-labelledby="client-name" className="mt-6 flex flex-wrap items-center gap-4 rounded-xl bg-surface p-6">
         <span aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-background font-bold text-primary">{customer.name.slice(0, 1)}</span>
@@ -74,25 +75,22 @@ export default async function CustomerPage({ params }: CustomerPageProps) {
 
         <section aria-labelledby="followup-title" className="rounded-xl bg-surface p-6 lg:col-start-1 lg:row-start-2">
           <h2 id="followup-title" className="text-lg font-bold">Suivi commercial</h2>
-          <p id="followup-help" className="mt-2 text-sm">Aperçu uniquement : la modification et la sauvegarde seront ajoutées plus tard.</p>
-          {/* Désactivé tant qu'il n'y a pas de sauvegarde */}
-          <fieldset disabled aria-describedby="followup-help" className="mt-4 space-y-4">
-            <legend className="sr-only">Aperçu du formulaire de suivi</legend>
+          <dl className="mt-4 space-y-4">
             <div>
-              <label htmlFor="client-status" className="block text-sm font-medium">Statut du suivi</label>
-              <select id="client-status" defaultValue="" className="mt-2 w-full rounded-lg border border-foreground/40 bg-background p-3 text-foreground">
-                <option value="">Non renseigné</option>
-                <option value="normal">Normal</option>
-                <option value="follow-up">À suivre</option>
-                <option value="priority">Prioritaire</option>
-              </select>
+              <dt className="text-sm font-medium">Statut</dt>
+              <dd className="mt-1 font-medium text-primary">{customer.followUp?.status ?? "Non suivi"}</dd>
             </div>
             <div>
-              <label htmlFor="client-note" className="block text-sm font-medium">Note de suivi</label>
-              <textarea id="client-note" rows={4} placeholder="Ajouter une note de suivi…" className="mt-2 w-full rounded-lg border border-foreground/40 bg-background p-3 text-foreground placeholder:text-foreground/70" />
+              <dt className="text-sm font-medium">Note de suivi</dt>
+              <dd className="mt-1 text-sm leading-relaxed">{customer.followUp?.note ?? "Aucune note pour le moment."}</dd>
             </div>
-            <button type="button" className="w-full cursor-not-allowed rounded-lg bg-primary px-4 py-3 font-medium text-white opacity-60">Enregistrer</button>
-          </fieldset>
+          </dl>
+          <FollowUpDialog
+            customerId={customer.id}
+            customerName={customer.name}
+            status={customer.followUp?.status}
+            note={customer.followUp?.note}
+          />
         </section>
       </div>
     </main>

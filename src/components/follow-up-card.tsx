@@ -1,15 +1,14 @@
-export type FollowUp = {
-  name: string;
-  type: string;
-  city: string;
-  status: "Normal" | "À suivre" | "Prioritaire";
-  note?: string;
-};
+import Link from "next/link";
+import type { FollowUp } from "@/types/follow-up";
 
 export default function FollowUpCard({ customer }: { customer: FollowUp }) {
   return (
     <article className="h-full min-w-0 rounded-xl bg-surface p-4 break-words md:p-6">
-      <h2 className="text-lg font-bold">{customer.name}</h2>
+      <h2 className="text-lg font-bold">
+        <Link href={`/clients/${customer.customerId}`} className="text-primary underline underline-offset-4">
+          {customer.name}
+        </Link>
+      </h2>
       <p className="mt-1 text-sm">
         {customer.type} · {customer.city}
       </p>

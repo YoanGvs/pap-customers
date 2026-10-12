@@ -3,6 +3,7 @@ import { PrismaClient } from "../src/generated/prisma/client";
 import { databaseUrl } from "../src/lib/database-url";
 import customers from "./data/customers.json";
 import orders from "./data/orders.json";
+import followUps from "./data/follow-ups.json";
 
 const prisma = new PrismaClient({ adapter: new PrismaBetterSqlite3({ url: databaseUrl }) });
 
@@ -14,6 +15,9 @@ async function main() {
     }
     for (const order of orders) {
       await database.order.upsert({ where: { id: order.id }, create: order, update: {} });
+    }
+    for (const followUp of followUps) {
+      await database.followUp.upsert({ where: { customerId: followUp.customerId }, create: followUp, update: {} });
     }
   });
   console.log("Exemples ajoutés : clients et commandes sont prêts.");

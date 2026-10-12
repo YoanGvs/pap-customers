@@ -2,6 +2,7 @@ import "server-only";
 import { cache } from "react";
 import type { Customer as StoredCustomer, Order } from "@/generated/prisma/client";
 import type { Customer } from "@/types/customer";
+import type { FollowUpStatus } from "@/types/follow-up";
 import { prisma } from "@/lib/prisma";
 
 const euros = new Intl.NumberFormat("fr-FR", {
@@ -54,7 +55,7 @@ export async function getCustomers(): Promise<Customer[]> {
 export const getCustomer = cache(async (id: string): Promise<Customer | null> => {
   const customer = await prisma.customer.findUnique({
     where: { id },
-    include: { orders: { orderBy: { date: "desc" } } },
+    include: { orders: { orderBy: { date: "desc" } }, followUp: true },
   });
   if (!customer) return null;
 
@@ -67,5 +68,8 @@ export const getCustomer = cache(async (id: string): Promise<Customer | null> =>
       amount: euros.format(order.amountCents / 100),
       status: order.status,
     })),
+    followUp: customer.followUp
+      ? { status: customer.followUp.status as FollowUpStatus, note: customer.followUp.note ?? undefined }
+      : undefined,
   };
 });

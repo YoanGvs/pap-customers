@@ -1,0 +1,5 @@
+[
+  { "customerId": "9", "status": "Prioritaire", "note": "Faire le point sur les besoins pour le prochain équipement." },
+  { "customerId": "2", "status": "À suivre", "note": "Reprendre contact après la rentrée." },
+  { "customerId": "3", "status": "Normal" }
+]

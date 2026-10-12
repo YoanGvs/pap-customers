@@ -1,4 +1,5 @@
 import type { OrderPreview } from "@/components/order-list";
+import type { FollowUpStatus } from "@/types/follow-up";
 
 // Client prêt à afficher (montants et dates formatés)
 export type Customer = {
@@ -20,4 +21,5 @@ export type Customer = {
   address?: string;
   averageOrder?: string;
   orderHistory?: OrderPreview[];
+  followUp?: { status: FollowUpStatus; note?: string };
 };
