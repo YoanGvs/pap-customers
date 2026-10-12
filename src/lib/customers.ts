@@ -45,6 +45,18 @@ export async function getCustomers(): Promise<Customer[]> {
   return customers.map(toCustomer);
 }
 
+export async function getOverview() {
+  const customers = await getCustomers();
+  const revenueCents = customers.reduce((total, customer) => total + customer.revenueCents, 0);
+
+  return {
+    revenue: euros.format(revenueCents / 100),
+    customerCount: customers.length,
+    orderCount: customers.reduce((total, customer) => total + customer.orders, 0),
+    topCustomers: customers.sort((a, b) => b.revenueCents - a.revenueCents).slice(0, 5),
+  };
+}
+
 // cache() : une seule lecture pour generateMetadata et la page
 export const getCustomer = cache(async (id: string): Promise<Customer | null> => {
   const customer = await prisma.customer.findUnique({
