@@ -31,6 +31,8 @@ function toCustomer(customer: CustomerWithOrders): Customer {
     orders: orderCount,
     revenue: euros.format(revenueCents / 100),
     lastOrder: lastOrder ? longDate.format(new Date(lastOrder)) : "Aucune",
+    revenueCents,
+    lastOrderDate: lastOrder,
     department: customer.department ?? undefined,
     since: customer.since ? longDate.format(new Date(customer.since)) : undefined,
     contact: customer.contact ?? undefined,

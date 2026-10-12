@@ -9,6 +9,9 @@ export type Customer = {
   orders: number;
   revenue: string;
   lastOrder: string;
+  // Valeurs brutes, pour le tri
+  revenueCents: number;
+  lastOrderDate?: string;
   department?: string;
   since?: string;
   contact?: string;
