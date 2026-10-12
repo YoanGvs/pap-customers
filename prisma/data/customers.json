@@ -1,0 +1,16 @@
+[
+  {
+    "id": "9", "name": "Les Explorateurs", "type": "Crèche privée", "city": "Lyon",
+    "department": "Rhône (69)", "since": "2021-03-15", "contact": "Camille Martin",
+    "email": "contact@exemple.fr", "phone": "04 00 00 00 00", "address": "12 rue des Jardins, 69000 Lyon",
+    "orderCount": 18, "revenueCents": 12840000, "averageOrderCents": 713333, "lastOrder": "2026-08-28"
+  },
+  { "id": "1", "name": "Marie Dupont", "type": "Crèche", "city": "Lyon", "orderCount": 24, "revenueCents": 312000, "lastOrder": "2026-08-28" },
+  { "id": "2", "name": "Lucas Bernard", "type": "École", "city": "Paris", "orderCount": 18, "revenueCents": 245000, "lastOrder": "2026-08-20" },
+  { "id": "3", "name": "Sophie Martin", "type": "Mairie", "city": "Nantes", "orderCount": 15, "revenueCents": 198000, "lastOrder": "2026-08-17" },
+  { "id": "4", "name": "Thomas Petit", "type": "Crèche", "city": "Lille", "orderCount": 11, "revenueCents": 134000, "lastOrder": "2026-08-12" },
+  { "id": "5", "name": "Camille Leroy", "type": "Association", "city": "Bordeaux", "orderCount": 9, "revenueCents": 98000, "lastOrder": "2026-08-03" },
+  { "id": "6", "name": "Julie Moreau", "type": "École", "city": "Toulouse", "orderCount": 7, "revenueCents": 76000, "lastOrder": "2026-07-28" },
+  { "id": "7", "name": "Antoine Roux", "type": "Particulier", "city": "Rennes", "orderCount": 4, "revenueCents": 42000, "lastOrder": "2026-07-15" },
+  { "id": "8", "name": "Léa Fontaine", "type": "Mairie", "city": "Strasbourg", "orderCount": 2, "revenueCents": 21000, "lastOrder": "2026-07-02" }
+]

@@ -2,7 +2,6 @@ export type FollowUp = {
   name: string;
   type: string;
   city: string;
-  // Seuls les trois statuts prévus peuvent être transmis à la carte.
   status: "Normal" | "À suivre" | "Prioritaire";
   note?: string;
 };

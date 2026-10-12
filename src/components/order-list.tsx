@@ -1,4 +1,3 @@
-// Modèle d'affichage uniquement : les montants ne servent pas encore aux calculs.
 export type OrderPreview = {
   reference: string;
   date: string;
@@ -27,7 +26,7 @@ function OrderCard({ order }: { order: OrderPreview }) {
 export default function OrderList({ orders }: { orders: OrderPreview[] }) {
   return (
     <>
-      {/* Une seule présentation est visible et accessible à la fois. */}
+      {/* Liste sur mobile, tableau à partir de md */}
       <ul className="mt-4 divide-y divide-background md:hidden">
         {orders.map((order) => <li key={order.reference}><OrderCard order={order} /></li>)}
       </ul>
