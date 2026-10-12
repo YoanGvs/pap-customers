@@ -15,17 +15,24 @@ export async function saveFollowUp(
   const note = String(formData.get("note") ?? "").trim();
 
   // Appelable par un simple POST : on revérifie tout côté serveur
-  const customer = await prisma.customer.findUnique({ where: { id: customerId } });
-  if (!customer) return { error: "Client introuvable." };
   if (note.length > 500) return { error: "La note ne doit pas dépasser 500 caractères." };
-
-  if (status === "") {
-    await prisma.followUp.deleteMany({ where: { customerId } });
-  } else if ((followUpStatuses as readonly string[]).includes(status)) {
-    const data = { status, note: note || null };
-    await prisma.followUp.upsert({ where: { customerId }, create: { customerId, ...data }, update: data });
-  } else {
+  if (status !== "" && !(followUpStatuses as readonly string[]).includes(status)) {
     return { error: "Statut inconnu." };
+  }
+
+  try {
+    const customer = await prisma.customer.findUnique({ where: { id: customerId } });
+    if (!customer) return { error: "Client introuvable." };
+
+    if (status === "") {
+      await prisma.followUp.deleteMany({ where: { customerId } });
+    } else {
+      const data = { status, note: note || null };
+      await prisma.followUp.upsert({ where: { customerId }, create: { customerId, ...data }, update: data });
+    }
+  } catch (error) {
+    console.error(error);
+    return { error: "Enregistrement impossible, réessayez." };
   }
 
   refresh();
