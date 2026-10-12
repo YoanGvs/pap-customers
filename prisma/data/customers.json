@@ -11,5 +11,20 @@
   { "id": "5", "name": "Camille Leroy", "type": "Association", "city": "Bordeaux" },
   { "id": "6", "name": "Julie Moreau", "type": "École", "city": "Toulouse" },
   { "id": "7", "name": "Antoine Roux", "type": "Particulier", "city": "Rennes" },
-  { "id": "8", "name": "Léa Fontaine", "type": "Mairie", "city": "Strasbourg" }
+  { "id": "8", "name": "Léa Fontaine", "type": "Mairie", "city": "Strasbourg" },
+  { "id": "10", "name": "Crèche Les Petits Pas", "type": "Crèche", "city": "Marseille", "department": "Bouches-du-Rhône (13)", "since": "2022-09-05", "contact": "Nadia Benali", "email": "petitspas@exemple.fr", "phone": "04 00 00 00 10", "address": "8 boulevard des Platanes, 13000 Marseille" },
+  { "id": "11", "name": "Mairie de Bellevue", "type": "Mairie", "city": "Nantes" },
+  { "id": "12", "name": "École des Tilleuls", "type": "École", "city": "Paris" },
+  { "id": "13", "name": "Micro-crèche Pomme d'Api", "type": "Crèche", "city": "Nice" },
+  { "id": "14", "name": "Association Bébé Câlin", "type": "Association", "city": "Montpellier" },
+  { "id": "15", "name": "Relais Petite Enfance du Val", "type": "Collectivité", "city": "Dijon", "department": "Côte-d'Or (21)", "since": "2020-01-14", "contact": "Paul Mercier", "email": "rpe-val@exemple.fr", "phone": "03 00 00 00 15", "address": "2 place de la Mairie, 21000 Dijon" },
+  { "id": "16", "name": "Hugo Lambert", "type": "Particulier", "city": "Grenoble" },
+  { "id": "17", "name": "Crèche municipale Arc-en-ciel", "type": "Crèche", "city": "Angers" },
+  { "id": "18", "name": "Communauté de communes du Pays Vert", "type": "Collectivité", "city": "Tours", "department": "Indre-et-Loire (37)", "since": "2019-06-03", "contact": "Claire Dubois", "email": "petite-enfance@exemple.fr", "phone": "02 00 00 00 18", "address": "15 avenue de la Loire, 37000 Tours" },
+  { "id": "19", "name": "École maternelle du Parc", "type": "École", "city": "Reims" },
+  { "id": "20", "name": "Inès Garnier", "type": "Particulier", "city": "Lille" },
+  { "id": "21", "name": "MAM Les Lucioles", "type": "Association", "city": "Rouen" },
+  { "id": "22", "name": "Mairie de Montval", "type": "Mairie", "city": "Clermont-Ferrand", "department": "Puy-de-Dôme (63)", "since": "2023-02-20", "contact": "Julien Faure", "email": "mairie-montval@exemple.fr", "phone": "04 00 00 00 22", "address": "1 rue de l'Hôtel de Ville, 63000 Clermont-Ferrand" },
+  { "id": "23", "name": "Crèche Les Moussaillons", "type": "Crèche privée", "city": "Brest" },
+  { "id": "24", "name": "Crèche Les Lutins", "type": "Crèche", "city": "Metz", "since": "2026-10-01" }
 ]
