@@ -4,8 +4,7 @@ import { databaseUrl } from "../src/lib/database-url";
 
 const prisma = new PrismaClient({ adapter: new PrismaBetterSqlite3({ url: databaseUrl }) });
 
-// Ouvrir SQLite crée le fichier s'il manque, sans effacer une base existante.
-// Le moteur de migration utilisé ici échoue quand ce fichier n'existe pas encore.
+// Crée dev.db s'il manque, sinon migrate deploy plante
 prisma.$queryRaw`SELECT 1`
   .catch((error) => {
     console.error(error);

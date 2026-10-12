@@ -1,3 +1,2 @@
-// Même fichier pour la création, le remplissage et les lectures de la base.
-// Les tests peuvent choisir une base temporaire via DATABASE_URL.
+// DATABASE_URL permet aux tests d'utiliser une base temporaire
 export const databaseUrl = process.env.DATABASE_URL ?? "file:./prisma/dev.db";

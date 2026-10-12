@@ -10,7 +10,7 @@ const euros = new Intl.NumberFormat("fr-FR", {
 const longDate = new Intl.DateTimeFormat("fr-FR", { dateStyle: "long", timeZone: "UTC" });
 const shortDate = new Intl.DateTimeFormat("fr-FR", { dateStyle: "short", timeZone: "UTC" });
 
-// La base conserve des centimes et des dates ISO ; les écrans reçoivent du texte lisible.
+// Centimes et dates ISO -> texte affichable
 function toCustomer(customer: StoredCustomer): Customer {
   return {
     id: customer.id,
@@ -37,7 +37,7 @@ export async function getCustomers(): Promise<Customer[]> {
   return customers.map(toCustomer);
 }
 
-// Le titre de l'onglet et la fiche partagent cette lecture pendant une même requête.
+// cache() : une seule lecture pour generateMetadata et la page
 export const getCustomer = cache(async (id: string): Promise<Customer | null> => {
   const customer = await prisma.customer.findUnique({
     where: { id },

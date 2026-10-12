@@ -1,6 +1,6 @@
 import type { OrderPreview } from "@/components/order-list";
 
-// Informations déjà préparées pour les écrans (montants et dates lisibles).
+// Client prêt à afficher (montants et dates formatés)
 export type Customer = {
   id: string;
   name: string;

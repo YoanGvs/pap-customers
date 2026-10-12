@@ -5,7 +5,7 @@ import { databaseUrl } from "@/lib/database-url";
 
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 
-// Réutiliser la connexion quand Next recharge le code pendant le développement.
+// Garde la même connexion entre deux rechargements en dev
 export const prisma = globalForPrisma.prisma ?? new PrismaClient({
   adapter: new PrismaBetterSqlite3({ url: databaseUrl }),
 });

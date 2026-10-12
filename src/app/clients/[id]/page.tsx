@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import OrderList from "@/components/order-list";
 import { getCustomer } from "@/lib/customers";
 
-// Next fournit le numéro contenu dans l'adresse ; TypeScript en décrit la forme.
 type CustomerPageProps = {
   params: Promise<{ id: string }>;
 };
@@ -79,7 +78,7 @@ export default async function CustomerPage({ params }: CustomerPageProps) {
         <section aria-labelledby="followup-title" className="rounded-xl bg-surface p-6 lg:col-start-1 lg:row-start-2">
           <h2 id="followup-title" className="text-lg font-bold">Suivi commercial</h2>
           <p id="followup-help" className="mt-2 text-sm">Aperçu uniquement : la modification et la sauvegarde seront ajoutées plus tard.</p>
-          {/* Les champs restent désactivés pour ne pas laisser croire qu'une saisie serait sauvegardée. */}
+          {/* Désactivé tant qu'il n'y a pas de sauvegarde */}
           <fieldset disabled aria-describedby="followup-help" className="mt-4 space-y-4">
             <legend className="sr-only">Aperçu du formulaire de suivi</legend>
             <div>

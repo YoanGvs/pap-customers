@@ -55,7 +55,7 @@ test("la base conserve les clients et leurs commandes", { timeout: 120_000 }, as
       },
     }), { code: "P2003" });
 
-    const editedName = "Marie — modification conservée";
+    const editedName = "Marie modifiée";
     await prisma.customer.update({ where: { id: "1" }, data: { name: editedName } });
     runCommand("npx", ["--no-install", "prisma", "db", "seed"]);
     assert.equal(await prisma.customer.count(), 9);
@@ -68,7 +68,6 @@ test("la base conserve les clients et leurs commandes", { timeout: 120_000 }, as
     assert.equal(await prisma.order.count(), 4);
   } finally {
     await prisma?.$disconnect();
-    // Seul le répertoire temporaire créé par ce test est supprimé.
     rmSync(directory, { recursive: true, force: true });
   }
 });

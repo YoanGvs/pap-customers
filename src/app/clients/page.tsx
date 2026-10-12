@@ -6,7 +6,7 @@ import { getCustomers } from "@/lib/customers";
 export const metadata: Metadata = { title: "Clients | PAP Customers" };
 
 export default async function Clients() {
-  // Lire la base à l'ouverture de la page, pas seulement lors de la compilation.
+  // Rendu à chaque requête, sinon la liste reste figée au build
   await connection();
   const customers = await getCustomers();
 

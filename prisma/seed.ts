@@ -7,8 +7,7 @@ import orders from "./data/orders.json";
 const prisma = new PrismaClient({ adapter: new PrismaBetterSqlite3({ url: databaseUrl }) });
 
 async function main() {
-  // Les clients doivent exister avant les commandes qui leur appartiennent.
-  // Relancer ce script n'écrase pas les données déjà présentes.
+  // Clients d'abord, les commandes en dépendent. update vide = ne touche pas à l'existant
   await prisma.$transaction(async (database) => {
     for (const customer of customers) {
       await database.customer.upsert({ where: { id: customer.id }, create: customer, update: {} });

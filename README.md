@@ -1,6 +1,6 @@
 # PAP Customers
 
-Application pédagogique de suivi clients — projet 5 OpenClassrooms, option A (entreprise fictive). Next.js, React, TypeScript, Tailwind CSS, SQLite et Prisma.
+Application pédagogique de suivi clients, projet 5 OpenClassrooms, option A (entreprise fictive). Next.js, React, TypeScript, Tailwind CSS, SQLite et Prisma.
 
 ## Démarrer en local
 

@@ -19,7 +19,7 @@ model Customer {
   phone      String?
   address    String?
 
-  // Chiffres provisoires des écrans, pas encore calculés depuis les commandes.
+  // Valeurs importées, pas encore calculées depuis Order
   orderCount        Int
   revenueCents      Int
   averageOrderCents Int?
