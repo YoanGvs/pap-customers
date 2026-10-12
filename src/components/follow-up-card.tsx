@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FollowUpStatusBadge from "@/components/follow-up-status";
 import type { FollowUp } from "@/types/follow-up";
 
 export default function FollowUpCard({ customer }: { customer: FollowUp }) {
@@ -16,8 +17,8 @@ export default function FollowUpCard({ customer }: { customer: FollowUp }) {
       <dl className="mt-4 space-y-4">
         <div>
           <dt className="text-sm font-medium">Statut</dt>
-          <dd className="mt-1 inline-block rounded-md bg-background px-3 py-1 font-medium text-primary">
-            {customer.status}
+          <dd className="mt-1">
+            <FollowUpStatusBadge status={customer.status} />
           </dd>
         </div>
         <div>

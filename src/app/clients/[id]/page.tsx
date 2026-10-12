@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import FollowUpDialog from "@/components/follow-up-dialog";
+import FollowUpStatusBadge from "@/components/follow-up-status";
 import OrderList from "@/components/order-list";
 import { getCustomer } from "@/lib/customers";
 
@@ -78,7 +79,7 @@ export default async function CustomerPage({ params }: CustomerPageProps) {
           <dl className="mt-4 space-y-4">
             <div>
               <dt className="text-sm font-medium">Statut</dt>
-              <dd className="mt-1 font-medium text-primary">{customer.followUp?.status ?? "Non suivi"}</dd>
+              <dd className="mt-1"><FollowUpStatusBadge status={customer.followUp?.status} /></dd>
             </div>
             <div>
               <dt className="text-sm font-medium">Note de suivi</dt>
