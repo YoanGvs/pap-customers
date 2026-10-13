@@ -20,9 +20,9 @@ Ouvrir [localhost:3000](http://localhost:3000), puis la page Clients.
 
 Le JSON sert à remplir initialement la base SQLite locale `prisma/dev.db`, ignorée par Git. La liste et les fiches lisent ensuite la base via Prisma, en gardant les mêmes écrans. Le remplissage initial, appelé *seed*, peut être relancé : il ajoute les éléments absents sans écraser ceux qui existent déjà.
 
-Les exemples contiennent **9 clients et 4 commandes**. Les compteurs, chiffres d’affaires et autres indicateurs sont des valeurs provisoires importées, pas des calculs déduits des commandes.
+Les exemples contiennent 24 clients, 53 commandes et 9 suivis. Chiffre d’affaires, nombre de commandes, panier moyen et dernière commande sont calculés à partir des commandes.
 
-L’accueil et la page Clients suivis restent statiques. L’application ne sauvegarde pas encore de modification du suivi.
+Le suivi d’un client (statut et note) se modifie depuis sa fiche et apparaît dans Clients suivis. L’accueil reste statique.
 
 ## Commandes utiles
 

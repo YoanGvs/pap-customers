@@ -1,0 +1,11 @@
+[
+  { "customerId": "9", "status": "Prioritaire", "note": "Faire le point sur les besoins pour le prochain équipement." },
+  { "customerId": "2", "status": "À suivre", "note": "Reprendre contact après la rentrée." },
+  { "customerId": "3", "status": "Normal" },
+  { "customerId": "10", "status": "Prioritaire", "note": "Devis mobilier de dortoir en attente de validation." },
+  { "customerId": "15", "status": "À suivre", "note": "Budget voté en novembre, relancer après le conseil." },
+  { "customerId": "18", "status": "Normal", "note": "Commande groupée habituelle au printemps." },
+  { "customerId": "22", "status": "À suivre", "note": "Ouverture d'une nouvelle crèche prévue au printemps." },
+  { "customerId": "24", "status": "Prioritaire", "note": "Nouveau client, première commande à accompagner." },
+  { "customerId": "16", "status": "Normal" }
+]

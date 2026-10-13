@@ -19,13 +19,8 @@ model Customer {
   phone      String?
   address    String?
 
-  // Valeurs importées, pas encore calculées depuis Order
-  orderCount        Int
-  revenueCents      Int
-  averageOrderCents Int?
-  lastOrder         String
-
-  orders Order[]
+  orders   Order[]
+  followUp FollowUp?
 }
 
 model Order {
@@ -38,4 +33,13 @@ model Order {
   customer    Customer @relation(fields: [customerId], references: [id])
 
   @@index([customerId])
+}
+
+// Un suivi par client au plus
+model FollowUp {
+  customerId String   @id
+  status     String
+  note       String?
+  updatedAt  DateTime @updatedAt
+  customer   Customer @relation(fields: [customerId], references: [id])
 }
