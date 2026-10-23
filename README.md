@@ -22,7 +22,7 @@ Le JSON sert à remplir initialement la base SQLite locale `prisma/dev.db`, igno
 
 Les exemples contiennent 24 clients, 53 commandes et 9 suivis. Chiffre d’affaires, nombre de commandes, panier moyen et dernière commande sont calculés à partir des commandes.
 
-Le suivi d’un client (statut et note) se modifie depuis sa fiche et apparaît dans Clients suivis. L’accueil reste statique.
+Le suivi d’un client (statut et note) se modifie depuis sa fiche et apparaît dans Clients suivis. L’accueil lit aussi la base : chiffre d’affaires total, nombre de clients et de commandes, et les meilleurs clients.
 
 ## Commandes utiles
 
