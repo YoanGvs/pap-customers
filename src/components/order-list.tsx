@@ -43,7 +43,7 @@ export default function OrderList({ orders }: { orders: OrderPreview[] }) {
         <tbody>
           {orders.map((order) => (
             <tr key={order.reference} className="border-t border-background">
-              <th scope="row" className="py-4 pr-3 font-medium">{order.reference}</th>
+              <td className="py-4 pr-3 font-medium">{order.reference}</td>
               <td className="py-4 pr-3"><time dateTime={order.dateTime}>{order.date}</time></td>
               <td className="py-4 pr-3 font-bold">{order.amount}</td>
               <td className="py-4">{order.status}</td>
